@@ -4,7 +4,8 @@ import streamlit as st
 import os
 
 # Define the SQLite database path using the current directory
-db_file = "Bk_Redbus/bus_data.db" #db_file = os.path.join(os.getcwd(), 'bus_data.db')  # Adjust the filename as needed
+#db_file = "Bk_Redbus/bus_data.db" 
+db_file = os.path.join(os.getcwd(), 'bus_data.db')  # Adjust the filename as needed
 
 # Connect to SQLite Database
 conn = sqlite3.connect(db_file)
@@ -44,7 +45,7 @@ elif sort_option == "Bus Type":
 filtered_data.reset_index(drop=True, inplace=True)
 filtered_data.index += 1  # Start index from 1
 
-# Display the results without showing the index
+# Display the results 
 st.dataframe(filtered_data[['Bus Name', 'Start Time', 'End Time', 'Rating', 'Price', 'Bus Type', 'Departure Location', 'Arrival Location', 'Total Duration', 'Seats Available']])
 
 
