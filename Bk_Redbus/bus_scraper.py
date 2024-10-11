@@ -10,12 +10,25 @@ from selenium.webdriver.common.by import By
 # Initialize the Chrome driver
 driver = webdriver.Chrome()
 
+# Function to scroll down the page until the end (very basic)
+def scroll_to_bottom():
+    last_height = driver.execute_script("return document.body.scrollHeight")
+
+    while True:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")  # Scroll to bottom
+        time.sleep(2)  # Wait for page to load
+        new_height = driver.execute_script("return document.body.scrollHeight")
+
+        if new_height == last_height:  # Check if no more content is loaded
+            break
+        last_height = new_height
+
 # Function to scrape bus details
 def scrape_bus_data(url):
     driver.get(url)
     time.sleep(3)  # Wait for the page to load
 
-    buses = driver.find_elements(By.CSS_SELECTOR, 'div.result-container')
+    
     bus_data = []
 
     # Click on "View Buses" button if it exists
@@ -26,8 +39,10 @@ def scrape_bus_data(url):
     except Exception as e:
         print("No 'View Buses' button found or error occurred: ", e)
 
+    scroll_to_bottom()   # Scroll till the end of the page to load all buses
+    
     # Scrape bus details from the current page after clicking "View Buses"
-    buses = driver.find_elements(By.CSS_SELECTOR, 'div.result-container')
+    buses = driver.find_elements(By.CSS_SELECTOR, '.result-sec')
 
     for bus in buses:
         try:
