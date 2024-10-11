@@ -47,7 +47,7 @@ filtered_data.index += 1  # Start index from 1
 # Display the results without showing the index
 st.dataframe(filtered_data[['Bus Name', 'Start Time', 'End Time', 'Rating', 'Price', 'Bus Type', 'Departure Location', 'Arrival Location', 'Total Duration', 'Seats Available']])
 
-# Additional code (if any) follows...
+
 
 
 
