@@ -4,8 +4,7 @@ import streamlit as st
 import os
 
 # Define the SQLite database path using the current directory
-#db_file = "Bk_Redbus/bus_data.db" 
-db_file = os.path.join(os.getcwd(), 'bus_data.db')  # Adjust the filename as needed
+db_file = "Bk_Redbus/bus_data.db" #db_file = os.path.join(os.getcwd(), 'bus_data.db')  # Adjust the filename as needed
 
 # Connect to SQLite Database
 conn = sqlite3.connect(db_file)
