@@ -19,7 +19,7 @@ def scroll_to_bottom():
 
     while True:
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
-        time.sleep(3) 
+        time.sleep(5) 
         new_height = driver.execute_script("return document.body.scrollHeight")
 
         if new_height == last_height:  
@@ -42,7 +42,7 @@ def gather_route_links():
             
             
             state_link.click()
-            time.sleep(8)  
+            time.sleep(5)  
             scroll_to_bottom()
             
             # Find route links
