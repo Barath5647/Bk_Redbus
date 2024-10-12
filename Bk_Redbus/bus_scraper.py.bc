@@ -29,7 +29,7 @@ def scroll_to_bottom():
 # Function to gather route links from each state (for completed_routes.txt)
 def gather_route_links():
     driver.get("https://www.redbus.in/online-booking/rtc-directory")
-    
+    time.sleep(3)
     #scroll_to_bottom()
     state_links = driver.find_elements(By.CSS_SELECTOR, "a.D113_link")  
     
