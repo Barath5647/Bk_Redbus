@@ -19,7 +19,7 @@ def scroll_to_bottom():
 
     while True:
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);") 
-        time.sleep(2) 
+        time.sleep(3) 
         new_height = driver.execute_script("return document.body.scrollHeight")
 
         if new_height == last_height:  
@@ -42,7 +42,7 @@ def gather_route_links():
             
             
             state_link.click()
-            time.sleep(5)  
+            time.sleep(8)  
             scroll_to_bottom()
             
             # Find route links
@@ -74,7 +74,7 @@ def save_routes_to_file():
 # Function to scrape bus details for each route
 def scrape_bus_data(url):
     driver.get(url)
-    time.sleep(3)  
+    time.sleep(5)  
     
     bus_data = []
 
