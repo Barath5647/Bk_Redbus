@@ -85,7 +85,7 @@ def scrape_bus_data(url):
         time.sleep(3)  
     except Exception as e:
         print("No 'View Buses' button found or error occurred: ", e)
-
+    time.sleep(3)
     scroll_to_bottom()   # Scroll till the end of the page to load all buses
     
     
