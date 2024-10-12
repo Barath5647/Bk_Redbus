@@ -1,4 +1,4 @@
-# bus_scraper.py
+# bus_scraper.py back up that scrapes the bus details
 
 import csv
 import time
